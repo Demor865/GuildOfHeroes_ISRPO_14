@@ -1,7 +1,7 @@
 public class Weapon { // Класс оружие
     public string Name; // Имя 
     public int Damage; // Урон 
-    public Double Strength{ get; private set; } // Прочность (защищена)
+    public Double Strength { get; private set; } // Прочность (защищена)
     public string Type; // Тип оружия
 
     public Weapon(string name, int damage, string type) {
