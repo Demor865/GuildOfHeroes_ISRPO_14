@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 //     >>> Герои <<<
 
-Probe.Run();
+//Probe.Run();
 
 Console.WriteLine("\n    >>> Main <<<\n");
 
@@ -38,6 +38,9 @@ Console.WriteLine($"Завершение: {board.TryComplete(101)}");
 Console.WriteLine($"Опыт после завершения: {sergey.Experience}");
 Console.WriteLine($"Повторное завершение: {board.TryComplete(101)}");
 Console.WriteLine($"Опыт после повтора: {sergey.Experience}");
+Console.WriteLine();
+Console.WriteLine(floatQuest.GetInfo());
+Console.WriteLine(sergey.GetInfo());
 
 
 //     >>> Оружия <<<
@@ -63,3 +66,4 @@ foreach (Weapon weapon in members_Weapon) {
     Console.WriteLine($"{weapon.Name} - {weapon.Damage} | {weapon.Type} | {weapon.Strength}");
 }
 Console.WriteLine($"-------------------------\n");
+

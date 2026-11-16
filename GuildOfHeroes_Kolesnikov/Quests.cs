@@ -70,6 +70,9 @@ public class Quest {
         return true;
     }
     public string GetInfo() {
-        return($"№{Id} «{Title}»: исполнитель {AssignedHero}, выполнено: {IsCompleted}");
+        if (AssignedHero == null) {
+            return "Исполнитель не назначен";
+        }
+        return ($"№{Id} «{Title}»: исполнитель {AssignedHero.Name}, выполнено: {IsCompleted}");
     }
 }
