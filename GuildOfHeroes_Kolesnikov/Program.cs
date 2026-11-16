@@ -18,17 +18,26 @@ guild.AddHero(anastasia);
 guild.AddHero(artem);
 guild.AddHero(alexander);
 
-List<Hero> members = guild.GetMembers();
+Console.WriteLine($">>> {guild.Name}: участников {guild.MemberCount} <<<");
+Console.WriteLine();
 
-Console.WriteLine($">>> {guild.Name}: перекличка <<<");
-Console.WriteLine($"Участников: {guild.MemberCount}");
+QuestBoard board = new QuestBoard(guild);
 
-Console.WriteLine($"Могут нести тяжёлые ящики (здоровье от 120): {guild.CountHealthy(120)}");
+Quest floatQuest = new Quest(101, "Вернуть поплавок", 100, 30);
+Console.WriteLine($"Поручение добавлено: {board.AddQuest(floatQuest)}");
+Console.WriteLine($">>> №{floatQuest.Id}: {floatQuest.Title} <<<");
 
-Hero? strongest = guild.FindStrongest();
-if (strongest != null) {
-    Console.WriteLine($"Самый здоровый: {strongest.Name} ({strongest.Health})");
+Console.WriteLine($"Назначение Сергея: {board.TryAssign(101, " сЕрГеЙ ")}");
+Hero? assigned = floatQuest.AssignedHero;
+if (assigned != null) {
+    Console.WriteLine($"Исполнитель: {assigned.Name}");
 }
+Console.WriteLine($"Опыт после назначения: {sergey.Experience}");
+
+Console.WriteLine($"Завершение: {board.TryComplete(101)}");
+Console.WriteLine($"Опыт после завершения: {sergey.Experience}");
+Console.WriteLine($"Повторное завершение: {board.TryComplete(101)}");
+Console.WriteLine($"Опыт после повтора: {sergey.Experience}");
 
 
 //     >>> Оружия <<<
